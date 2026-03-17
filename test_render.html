@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background: #5c94fc;
+            margin: 20px;
+            color: white;
+        }
+
+        canvas {
+            image-rendering: pixelated;
+            border: 1px solid red;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Test Pipe Render (Fixed)</h2>
+    <canvas id="c" width="400" height="400"></canvas>
+    <script>
+        window.onload = function () {
+            const c = document.getElementById('c').getContext('2d');
+            c.imageSmoothingEnabled = false;
+
+            const i1 = new Image();
+            const i2 = new Image();
+
+            let loaded = 0;
+            const draw = () => {
+                loaded++;
+                if (loaded < 2) return;
+
+                c.fillStyle = 'white';
+                c.font = '16px Arial';
+                const TILE_SIZE = 16;
+
+                // Draw original images for reference
+                c.fillText('i2 (Pipe 2)', 10, 20);
+                c.drawImage(i2, 10, 30);
+
+                c.fillText('i1 (Pipe 1)', 120, 20);
+                c.drawImage(i1, 120, 30);
+
+                // Attempt Vertical Pipe logic
+                c.fillText('Vertical', 200, 20);
+                // Left body
+                c.drawImage(i2, 0, 32, 32, 32, 200, 30, TILE_SIZE, TILE_SIZE);
+                // Right body
+                c.drawImage(i2, 32, 32, 32, 32, 200 + TILE_SIZE, 30, TILE_SIZE, TILE_SIZE);
+
+                // Attempt Horizontal Pipe logic
+                c.fillText('Horizontal', 10, 180);
+                const rx = 50; const ry = 200;
+
+                // Head
+                c.save();
+                c.translate(rx, ry);
+                c.rotate(-Math.PI / 2);
+                c.drawImage(i2, 0, 0, 65, 32, 0, 0, TILE_SIZE * 2, TILE_SIZE * 2);
+                c.restore();
+
+                // Body
+                c.save();
+                c.translate(rx - TILE_SIZE * 2, ry);
+                c.rotate(-Math.PI / 2);
+                c.drawImage(i1, 0, 0, i1.width, i1.height, 0, 0, TILE_SIZE * 2, TILE_SIZE * 2);
+                c.restore();
+            };
+
+            i1.onload = draw;
+            i2.onload = draw;
+
+            // NOTE: Use absolute filesystem paths for the script to load them locally without a webserver
+            i1.src = 'c:/Users/G2546/.gemini/antigravity/scratch/super-mario-1-1/assets/pipe/dokan_under_1.png';
+            i2.src = 'c:/Users/G2546/.gemini/antigravity/scratch/super-mario-1-1/assets/pipe/dokan_under_2.png';
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-family: monospace;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1px;
+            background: red;
+            width: fit-content;
+            border: 1px solid yellow;
+        }
+
+        .cell {
+            width: 10px;
+            height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>i1: dokan_under_1 (4x57)</h2>
+    <div id="i1" class="grid" style="grid-template-columns: repeat(4, 10px);"></div>
+    <h2>i2: dokan_under_2 (65x129)</h2>
+    <div style="overflow:auto; max-height: 400px; max-width: 800px;">
+        <div id="i2" class="grid" style="grid-template-columns: repeat(65, 10px);"></div>
+    </div>
+    <script>
+        function render(src, w, h, out) {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                const c = document.createElement('canvas');
+                c.width = w; c.height = h;
+                const ctx = c.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                const data = ctx.getImageData(0, 0, w, h).data;
+                const div = document.getElementById(out);
+                for (let i = 0; i < data.length; i += 4) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    if (data[i + 3] === 0) { cell.style.background = '#000'; } // transparent = black (for visibility here)
+                    else { cell.style.background = `rgba(${data[i]},${data[i + 1]},${data[i + 2]},${data[i + 3] / 255})`; }
+                    div.appendChild(cell);
+                }
+            };
+        }
+        render("assets/pipe/dokan_under_1.png", 4, 57, 'i1');
+        render("assets/pipe/dokan_under_2.png", 65, 129, 'i2');
+    </script>
+</body>
+
+</html>

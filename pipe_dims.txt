@@ -1,0 +1,7 @@
+﻿dokan(under)_center_down.png: 32x29
+dokan(under)_center_up.png: 32x32
+dokan(under)_left_down.png: 40x29
+dokan(under)_left_up.png: 40x32
+dokan(under)_right_down.png: 32x29
+dokan(under)_right_up.png: 32x32
+dokan(under)_vertical_left.png: 32x32

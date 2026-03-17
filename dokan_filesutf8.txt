@@ -1,0 +1,14 @@
+﻿dokan(under)
+dokan(under)_1.png
+dokan(under)_2.png
+dokan(under)_half_1.png
+dokan(under)_half_2.png
+dokan.png
+dokan_tugi.png
+dokan(under)_center_down.png
+dokan(under)_center_up.png
+dokan(under)_left_down.png
+dokan(under)_left_up.png
+dokan(under)_right_down.png
+dokan(under)_right_up.png
+dokan(under)_vertical_left.png

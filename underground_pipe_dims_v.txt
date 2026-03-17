@@ -1,0 +1,12 @@
+﻿dokan.png: 512x512
+dokan_tugi.png: 512x32
+dokan_under.png: 61x129
+dokan_under_1.png: 4x57
+dokan_under_2.png: 65x129
+dokan_under_half1.png: 4x32
+dokan_under_half2.png: 61x104
+dokan_under_left_down.png: 40x29
+dokan_under_left_up.png: 40x32
+dokan_under_right_down.png: 32x29
+dokan_under_right_up.png: 32x32
+dokan_under_v_l.png: 32x32

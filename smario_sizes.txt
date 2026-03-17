@@ -1,0 +1,4 @@
+﻿assets\smario\smario_1(neutral).png size: 512x512
+assets\smario\smario_7(duck).png size: 32x44
+assets\firemario\fsMario1(neutral).png size: 32x64
+assets\firemario\fsMario7(down).png size: 32x44

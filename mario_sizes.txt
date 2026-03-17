@@ -1,0 +1,2 @@
+﻿assets\mario\mario_1(neutral).png size: 256x256
+assets\mario\mario8_goal.png size: 26x30
